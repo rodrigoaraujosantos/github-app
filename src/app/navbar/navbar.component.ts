@@ -1,33 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { GithubUser } from './interface/GithubUser';
-
-
-
-
-import { GithubApiService } from './services/github-api.service';
+import { GithubUser } from '../interface/GithubUser';
+import { GithubApiService } from '../services/github-api.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: 'app-navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.css']
 })
-export class AppComponent {
+export class NavbarComponent implements OnInit {
   githubForm: FormGroup = this.fb.group({
     username: ['', [ Validators.required ]]
   })
 
   gUser!: GithubUser
-  
 
   constructor(
     private fb: FormBuilder,
     private githubService: GithubApiService
-  ) {}
+  ) { }
 
-  ngOnInit(){
-    this.githubService.procurarUsuario('rodrigo').subscribe((user) => { console.log(user)})
+  ngOnInit(): void {
   }
 
   recebendoUsernameHtlm(){
@@ -40,10 +33,6 @@ export class AppComponent {
         this.gUser = pegoOsDados
       }
     )
-
-    this.githubService.procurarRepos(username).subscribe((repos) => {
-        console.log(repos)
-      }
-    )
   }
+
 }

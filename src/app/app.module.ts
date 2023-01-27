@@ -6,17 +6,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule // modulo para fazer requisições http dentro do angular
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

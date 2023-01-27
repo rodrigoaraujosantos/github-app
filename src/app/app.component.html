@@ -1,7 +1,8 @@
+<app-navbar></app-navbar>
 <main class="container">
   <section class="search">
     <img src="/assets/github.svg" alt="Github" *ngIf="gUser == undefined">
-    <form action="#" id="search-form" [formGroup]="githubForm" (ngSubmit)="procurar()" *ngIf="gUser == undefined">
+    <form action="#" id="search-form" [formGroup]="githubForm" (ngSubmit)="recebendoUsernameHtlm()" *ngIf="gUser == undefined">
       <mat-form-field appearance="outline">
         <mat-label>Username</mat-label>
         <input type="text" matInput placeholder="Ex: frogs123" formControlName="username">
@@ -10,11 +11,15 @@
         <mat-icon>search</mat-icon>
       </button>
     </form>
-    <h1 *ngIf="gUser != undefined">{{ gUser.name }}</h1>
-    <img *ngIf="gUser != undefined" [src]="gUser.avatar_url">
-    
-    
-    
 
+    <img *ngIf="gUser != undefined" [src]="gUser.avatar_url">
+    <h1 *ngIf="gUser != undefined">{{ gUser.name }}</h1>
+    <p *ngIf="gUser != undefined"> {{gUser.login}}</p>
+    <p *ngIf="gUser != undefined">Seguidores: {{gUser.followers}}</p>
+    <p *ngIf="gUser != undefined">Seguindo: {{gUser.following}}</p>
+    <p *ngIf="gUser != undefined">Blog Pessoal: {{gUser.blog}}</p>
+    <p *ngIf="gUser != undefined">Localização: {{gUser.location}}</p>
+    <p *ngIf="gUser != undefined">E-mail: {{gUser.email}}</p>
+    <p *ngIf="gUser != undefined">Sobre: {{gUser.bio}}</p>
   </section>
 </main>

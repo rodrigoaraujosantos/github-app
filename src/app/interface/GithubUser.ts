@@ -8,8 +8,5 @@ export interface GithubUser { // filtra oque queremos retornar
   location: string
   email: string
   bio: string
-
-  
-
 }
 
