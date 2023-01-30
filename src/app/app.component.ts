@@ -36,13 +36,13 @@ export class AppComponent {
     // 1° sucesso
     // 2° erro
     // 3° completo
-    this.githubService.procurarUsuario(username).subscribe((pegoOsDados) => {
-        this.gUser = pegoOsDados
+    this.githubService.procurarUsuario(username).subscribe((data) => {
+        this.gUser = data
       }
     )
 
-    this.githubService.procurarRepos(username).subscribe((repos) => {
-        console.log(repos)
+    this.githubService.procurarRepos(username).subscribe((data) => {
+        console.log(data)
       }
     )
   }
